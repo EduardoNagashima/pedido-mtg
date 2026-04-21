@@ -1,0 +1,187 @@
+  @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap');
+
+  :root {
+    --bg: #faf8f4;
+    --card-bg: #ffffff;
+    --border: #d9d0c0;
+    --accent: #7a4f2e;
+    --text: #2a2016;
+    --muted: #8a7a65;
+    --nm: #2e7a3a;
+    --sp: #c47a1a;
+    --mp: #c43a2e;
+    --foil: #5a3a8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 16px;
+    font-size: 11px;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+  }
+
+  header h1 {
+    font-family: 'Bitter', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+  }
+
+  header span {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 9px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0.25;
+  }
+
+  .card-index {
+    font-size: 9px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .card-name {
+    font-family: 'Bitter', serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .card-pt-name {
+    font-size: 10px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .badge-nm { background: #e6f4e8; color: var(--nm); border: 1px solid #b2dab8; }
+  .badge-sp { background: #fef3e0; color: var(--sp); border: 1px solid #f5d898; }
+  .badge-mp { background: #fce8e7; color: var(--mp); border: 1px solid #f0b8b5; }
+  .badge-foil { background: #ede8f8; color: var(--foil); border: 1px solid #c8b8ed; }
+  .badge-lang { background: #f0ece6; color: var(--muted); border: 1px solid var(--border); }
+  .badge-code { background: #f5f3ef; color: var(--muted); border: 1px solid var(--border); font-weight: 600; }
+
+  .card-edition {
+    font-size: 9.5px;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  .card-price {
+    margin-top: auto;
+    padding-top: 5px;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-price .unit { font-size: 9.5px; color: var(--muted); }
+  .card-price .total { font-family: 'Bitter', serif; font-size: 13px; font-weight: 700; color: var(--accent); }
+
+  .card-cod {
+    font-size: 8.5px;
+    color: #bbb;
+    margin-top: 1px;
+  }
+
+  /* Summary row */
+  .summary {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
+
+  .summary-table {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 260px;
+  }
+
+  .summary-table tr td {
+    padding: 5px 12px;
+    font-size: 11px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr td:first-child { color: var(--muted); }
+  .summary-table tr td:last-child { text-align: right; font-weight: 600; }
+
+  .summary-table .total-row td {
+    font-family: 'Bitter', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    background: #fdf8f0;
+  }
+
+  .discount-row td { color: var(--nm) !important; }
+
+  @media print {
+    body { padding: 8px; background: white; }
+    .grid { gap: 6px; }
+    .card { break-inside: avoid; }
+    @page { margin: 8mm; size: A4; }
+  }
